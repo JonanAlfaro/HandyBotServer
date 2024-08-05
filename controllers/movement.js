@@ -1,3 +1,6 @@
+const express = require('express');
+const router = express.Router();
+
 const userService = require('../service/movement');
 
 router.get('/', getAll);
