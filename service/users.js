@@ -8,10 +8,16 @@ module.exports.usuarios = async () => {
   return results;
 };
 
-module.exports.findOneUsuarios = async (id) => {
+module.exports.findOneID = async (id) => {
   const collection = await db.collection(usuarios);
   const query = { _id: new ObjectId(id) };
   const results = await collection.findOne(query);
+  return results;
+}
+
+module.exports.findOneEmail = async (email) => {
+  const collection = await db.collection(usuarios);
+  const results = await collection.findOne({ email: email });
   return results;
 }
 
@@ -24,7 +30,7 @@ module.exports.createUsuario = async (params) => {
     password :await bcrypt.hash(params.password, 10)
   };
 
-  if (await db.collection(usuarios).findOne({ where: { email: params.email } })) {
+  if (await db.collection(usuarios).findOne({ email: email })) {
       throw 'Email "' + params.email + '" ya fue registrado';
   }
 
