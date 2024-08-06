@@ -29,7 +29,7 @@ function create(req, res, next) {
       console.log(req.body)
          userService.createUsuario(req.body)
         .then((data) => res.send(data).status(200))
-        .catch(next);
+        .catch(res.send("Hubo un problema al guardar el registro").status(404));
 }
 
 

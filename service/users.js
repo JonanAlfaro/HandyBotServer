@@ -30,8 +30,8 @@ module.exports.createUsuario = async (params) => {
     password :await bcrypt.hash(params.password, 10)
   };
 
-  if (await db.collection(usuarios).findOne({ email: email })) {
-      throw 'Email "' + params.email + '" ya fue registrado';
+  if (await db.collection(usuarios).findOne({ email: newUsuario.email })) {
+      return 'Email "' + params.email + '" ya fue registrado';
   }
 
   const collection = await db.collection(usuarios);

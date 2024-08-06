@@ -28,6 +28,6 @@ function getById(req, res, next) {
 function create(req, res, next) {
       console.log(req.body)
          userService.createMovimientos(req.body)
-        .then((data) => res.send(data).status(200))
+        .then((data) => res.send(data))
         .catch(next);
 }
