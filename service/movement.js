@@ -31,6 +31,7 @@ module.exports.createMovimientos = async (params) => {
 
 module.exports.playMovimientos = async (array) => {
   websocket.webSocket(array);
+  websocket.webSocketdisconnect();
   return true;
 }
 
