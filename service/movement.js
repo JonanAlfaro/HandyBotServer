@@ -30,9 +30,7 @@ module.exports.createMovimientos = async (params) => {
 }
 
 module.exports.playMovimientos = async (array) => {
-  array.forEach(element => {
-    websocket.webSocket(element);
-  });
+  websocket.webSocket(array);
   return true;
 }
 

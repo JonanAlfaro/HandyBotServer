@@ -10,10 +10,10 @@ module.exports.webSocket = (comandos) => {
 // Conectar al servidor
 client.connect(SOCKETPORT, SOCKETHOST, () => {
     console.log(`Connected to: ${SOCKETHOST}:${SOCKETPORT}`);
-    client.write(comandos[0])
-    // comandos.forEach(element => {
-    //     client.write(element);
-    // });
+    comandos.forEach(element => {
+        console.log(element);
+        client.write(element);
+    });
     
   });
   
