@@ -1,5 +1,9 @@
 const net = require('net');
-const { SOCKETHOST, SOCKETPORT } = require('../config');
+// const { SOCKETHOST, SOCKETPORT } = require('../config');
+
+ const SOCKETHOST='192.168.100.251'; // IP del servidor Arduino
+ const  SOCKETPORT=12345;
+
 
 // Crear un cliente TCP
 const client = new net.Socket();
@@ -9,7 +13,7 @@ module.exports.webSocket = (comando) => {
 // Conectar al servidor
 client.connect(SOCKETPORT, SOCKETHOST, () => {
     console.log(`Connected to: ${SOCKETHOST}:${SOCKETPORT}`);
-    client.write('Hello from Node.js\n');
+    client.write(comando);
   });
   
   // Manejar datos recibidos del servidor
