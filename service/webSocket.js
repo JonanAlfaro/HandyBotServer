@@ -32,6 +32,5 @@ client.connect(SOCKETPORT, SOCKETHOST, () => {
     console.error('Connection error: ', err);
   });
 
-  client.end();
 }
 
