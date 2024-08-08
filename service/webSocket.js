@@ -1,5 +1,5 @@
 const net = require('net');
-const { SOCKETHOST, SOCKETPORT } = require("./config.js");
+const { SOCKETHOST, SOCKETPORT } = require('../config');
 
 // Crear un cliente TCP
 const client = new net.Socket();
