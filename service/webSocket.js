@@ -31,8 +31,8 @@ client.connect(SOCKETPORT, SOCKETHOST, () => {
   this.client.on('error', (err) => {
     console.error('Connection error: ', err);
   });
+}
 
-  module.exports.webSocketdisconnect =  () => {
-    this.client.end();
-  }
+module.exports.webSocketdisconnect =  () => {
+  this.client.end();
 }
