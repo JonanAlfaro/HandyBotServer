@@ -24,7 +24,15 @@ client.connect(SOCKETPORT, SOCKETHOST, () => {
     client.destroy();
   });
 
-  this.client.on('error', (err) => {
+  client.on('close', () => {
+    console.log('Connection closed');
+  });
+
+  client.on('error', (err) => {
     console.error('Connection error: ', err);
   });
+}
+
+module.exports.webSocketdisconnect =  () => {
+  this.client.end();
 }
