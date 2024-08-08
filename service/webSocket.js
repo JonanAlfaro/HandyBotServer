@@ -34,5 +34,5 @@ client.connect(SOCKETPORT, SOCKETHOST, () => {
 }
 
 module.exports.webSocketdisconnect =  () => {
-  this.client.end();
+  client.end();
 }
