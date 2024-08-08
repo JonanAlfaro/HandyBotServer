@@ -28,6 +28,7 @@ app.use(cors({
 app.use('/users',verifyToken, require('./controllers/users.js'));
 app.use('/movements',verifyToken,  require('./controllers/movement.js'));
 app.use('/auth', require('./controllers/auth.js'));
+app.use('/webSocket', require('./controllers/webSocket.js'));
 app.get('/protected', verifyToken, (req, res) => {
   res.status(200).send(`Hello User ${req.userId}`);
 });

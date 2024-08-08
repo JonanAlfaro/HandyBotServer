@@ -1,5 +1,6 @@
 const db = require('../db.js')
 const movimientos = "movimientos";
+const websocket = require('../service/webSocket.js')
 
 module.exports.movimientos = async () => {
   const collection = await db.collection(movimientos);
@@ -27,3 +28,11 @@ module.exports.createMovimientos = async (params) => {
   const result = await collection.insertOne(newUsuario);
   return result;
 }
+
+module.exports.playMovimientos = async (array) => {
+  array.forEach(element => {
+    websocket.webSocket(element);
+  });
+  return true;
+}
+
